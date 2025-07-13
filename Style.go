@@ -7,56 +7,41 @@ import "C"
 type StyleVarID int
 
 const (
-	// StyleVarAlpha is a float.
-	StyleVarAlpha StyleVarID = iota
-	// StyleVarDisabledAlpha is a float.
-	StyleVarDisabledAlpha
-	// StyleVarWindowPadding is a Vec2.
-	StyleVarWindowPadding
-	// StyleVarWindowRounding is a float.
-	StyleVarWindowRounding
-	// StyleVarWindowBorderSize is a float.
-	StyleVarWindowBorderSize
-	// StyleVarWindowMinSize is a Vec2.
-	StyleVarWindowMinSize
-	// StyleVarWindowTitleAlign is a Vec2.
-	StyleVarWindowTitleAlign
-	// StyleVarChildRounding is a float.
-	StyleVarChildRounding
-	// StyleVarChildBorderSize is a float.
-	StyleVarChildBorderSize
-	// StyleVarPopupRounding is a float.
-	StyleVarPopupRounding
-	// StyleVarPopupBorderSize is a float.
-	StyleVarPopupBorderSize
-	// StyleVarFramePadding is a Vec2.
-	StyleVarFramePadding
-	// StyleVarFrameRounding is a float.
-	StyleVarFrameRounding
-	// StyleVarFrameBorderSize is a float.
-	StyleVarFrameBorderSize
-	// StyleVarItemSpacing is a Vec2.
-	StyleVarItemSpacing
-	// StyleVarItemInnerSpacing is a Vec2.
-	StyleVarItemInnerSpacing
-	// StyleVarIndentSpacing is a float.
-	StyleVarIndentSpacing
-	// StyleVarCellPadding is a Vec2.
-	StyleVarCellPadding
-	// StyleVarScrollbarSize is a float.
-	StyleVarScrollbarSize
-	// StyleVarScrollbarRounding is a float.
-	StyleVarScrollbarRounding
-	// StyleVarGrabMinSize is a float.
-	StyleVarGrabMinSize
-	// StyleVarGrabRounding is a float.
-	StyleVarGrabRounding
-	// StyleVarTabRounding is a float.
-	StyleVarTabRounding
-	// StyleVarButtonTextAlign is a Vec2.
-	StyleVarButtonTextAlign
-	// StyleVarSelectableTextAlign is a Vec2.
-	StyleVarSelectableTextAlign
+	StyleVarAlpha                       StyleVarID = iota // float     Alpha
+	StyleVarDisabledAlpha                                 // float     DisabledAlpha
+	StyleVarWindowPadding                                 // ImVec2    WindowPadding
+	StyleVarWindowRounding                                // float     WindowRounding
+	StyleVarWindowBorderSize                              // float     WindowBorderSize
+	StyleVarWindowMinSize                                 // ImVec2    WindowMinSize
+	StyleVarWindowTitleAlign                              // ImVec2    WindowTitleAlign
+	StyleVarChildRounding                                 // float     ChildRounding
+	StyleVarChildBorderSize                               // float     ChildBorderSize
+	StyleVarPopupRounding                                 // float     PopupRounding
+	StyleVarPopupBorderSize                               // float     PopupBorderSize
+	StyleVarFramePadding                                  // ImVec2    FramePadding
+	StyleVarFrameRounding                                 // float     FrameRounding
+	StyleVarFrameBorderSize                               // float     FrameBorderSize
+	StyleVarItemSpacing                                   // ImVec2    ItemSpacing
+	StyleVarItemInnerSpacing                              // ImVec2    ItemInnerSpacing
+	StyleVarIndentSpacing                                 // float     IndentSpacing
+	StyleVarCellPadding                                   // ImVec2    CellPadding
+	StyleVarScrollbarSize                                 // float     ScrollbarSize
+	StyleVarScrollbarRounding                             // float     ScrollbarRounding
+	StyleVarGrabMinSize                                   // float     GrabMinSize
+	StyleVarGrabRounding                                  // float     GrabRounding
+	StyleVarImageBorderSize                               // float     ImageBorderSize
+	StyleVarTabRounding                                   // float     TabRounding
+	StyleVarTabBorderSize                                 // float     TabBorderSize
+	StyleVarTabBarBorderSize                              // float     TabBarBorderSize
+	StyleVarTabBarOverlineSize                            // float     TabBarOverlineSize
+	StyleVarTableAngledHeadersAngle                       // float     TableAngledHeadersAngle
+	StyleVarTableAngledHeadersTextAlign                   // ImVec2  TableAngledHeadersTextAlign
+	StyleVarButtonTextAlign                               // ImVec2    ButtonTextAlign
+	StyleVarSelectableTextAlign                           // ImVec2    SelectableTextAlign
+	StyleVarSeparatorTextBorderSize                       // float     SeparatorTextBorderSize
+	StyleVarSeparatorTextAlign                            // ImVec2    SeparatorTextAlign
+	StyleVarSeparatorTextPadding                          // ImVec2    SeparatorTextPadding
+	StyleVarDockingSeparatorSize                          // float     DockingSeparatorSize
 )
 
 // StyleColorID identifies a color in the UI style.
@@ -64,59 +49,64 @@ type StyleColorID int
 
 // This is the list of StyleColor identifier.
 const (
-	StyleColorText                  StyleColorID = 0
-	StyleColorTextDisabled          StyleColorID = 1
-	StyleColorWindowBg              StyleColorID = 2
-	StyleColorChildBg               StyleColorID = 3
-	StyleColorPopupBg               StyleColorID = 4
-	StyleColorBorder                StyleColorID = 5
-	StyleColorBorderShadow          StyleColorID = 6
-	StyleColorFrameBg               StyleColorID = 7
-	StyleColorFrameBgHovered        StyleColorID = 8
-	StyleColorFrameBgActive         StyleColorID = 9
-	StyleColorTitleBg               StyleColorID = 10
-	StyleColorTitleBgActive         StyleColorID = 11
-	StyleColorTitleBgCollapsed      StyleColorID = 12
-	StyleColorMenuBarBg             StyleColorID = 13
-	StyleColorScrollbarBg           StyleColorID = 14
-	StyleColorScrollbarGrab         StyleColorID = 15
-	StyleColorScrollbarGrabHovered  StyleColorID = 16
-	StyleColorScrollbarGrabActive   StyleColorID = 17
-	StyleColorCheckMark             StyleColorID = 18
-	StyleColorSliderGrab            StyleColorID = 19
-	StyleColorSliderGrabActive      StyleColorID = 20
-	StyleColorButton                StyleColorID = 21
-	StyleColorButtonHovered         StyleColorID = 22
-	StyleColorButtonActive          StyleColorID = 23
-	StyleColorHeader                StyleColorID = 24
-	StyleColorHeaderHovered         StyleColorID = 25
-	StyleColorHeaderActive          StyleColorID = 26
-	StyleColorSeparator             StyleColorID = 27
-	StyleColorSeparatorHovered      StyleColorID = 28
-	StyleColorSeparatorActive       StyleColorID = 29
-	StyleColorResizeGrip            StyleColorID = 30
-	StyleColorResizeGripHovered     StyleColorID = 31
-	StyleColorResizeGripActive      StyleColorID = 32
-	StyleColorTab                   StyleColorID = 33
-	StyleColorTabHovered            StyleColorID = 34
-	StyleColorTabActive             StyleColorID = 35
-	StyleColorTabUnfocused          StyleColorID = 36
-	StyleColorTabUnfocusedActive    StyleColorID = 37
-	StyleColorPlotLines             StyleColorID = 38
-	StyleColorPlotLinesHovered      StyleColorID = 39
-	StyleColorPlotHistogram         StyleColorID = 40
-	StyleColorPlotHistogramHovered  StyleColorID = 41
-	StyleColorTableHeaderBg         StyleColorID = 42 // Table header background
-	StyleColorTableBorderStrong     StyleColorID = 43 // Table outer and header borders (prefer using Alpha=1.0 here)
-	StyleColorTableBorderLight      StyleColorID = 44 // Table inner borders (prefer using Alpha=1.0 here)
-	StyleColorTableRowBg            StyleColorID = 45 // Table row background (even rows)
-	StyleColorTableRowBgAlt         StyleColorID = 46 // Table row background (odd rows)
-	StyleColorTextSelectedBg        StyleColorID = 47
-	StyleColorDragDropTarget        StyleColorID = 48
-	StyleColorNavHighlight          StyleColorID = 49 // Gamepad/keyboard: current highlighted item
-	StyleColorNavWindowingHighlight StyleColorID = 50 // Highlight window when using CTRL+TAB
-	StyleColorNavWindowingDarkening StyleColorID = 51 // Darken/colorize entire screen behind the CTRL+TAB window list, when active
-	StyleColorModalWindowDarkening  StyleColorID = 52 // Darken/colorize entire screen behind a modal window, when one is active
+	StyleColorText StyleColorID = iota
+	StyleColorTextDisabled
+	StyleColorWindowBg // Background of normal windows
+	StyleColorChildBg  // Background of child windows
+	StyleColorPopupBg  // Background of popups, menus, tooltips windows
+	StyleColorBorder
+	StyleColorBorderShadow
+	StyleColorFrameBg // Background of checkbox, radio button, plot, slider, text input
+	StyleColorFrameBgHovered
+	StyleColorFrameBgActive
+	StyleColorTitleBg          // Title bar
+	StyleColorTitleBgActive    // Title bar when focused
+	StyleColorTitleBgCollapsed // Title bar when collapsed
+	StyleColorMenuBarBg
+	StyleColorScrollbarBg
+	StyleColorScrollbarGrab
+	StyleColorScrollbarGrabHovered
+	StyleColorScrollbarGrabActive
+	StyleColorCheckMark // Checkbox tick and RadioButton circle
+	StyleColorSliderGrab
+	StyleColorSliderGrabActive
+	StyleColorButton
+	StyleColorButtonHovered
+	StyleColorButtonActive
+	StyleColorHeader // Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
+	StyleColorHeaderHovered
+	StyleColorHeaderActive
+	StyleColorSeparator
+	StyleColorSeparatorHovered
+	StyleColorSeparatorActive
+	StyleColorResizeGrip // Resize grip in lower-right and lower-left corners of windows.
+	StyleColorResizeGripHovered
+	StyleColorResizeGripActive
+	StyleColorTabHovered                // Tab background, when hovered
+	StyleColorTab                       // Tab background, when tab-bar is focused & tab is unselected
+	StyleColorTabSelected               // Tab background, when tab-bar is focused & tab is selected
+	StyleColorTabSelectedOverline       // Tab horizontal overline, when tab-bar is focused & tab is selected
+	StyleColorTabDimmed                 // Tab background, when tab-bar is unfocused & tab is unselected
+	StyleColorTabDimmedSelected         // Tab background, when tab-bar is unfocused & tab is selected
+	StyleColorTabDimmedSelectedOverline //..horizontal overline, when tab-bar is unfocused & tab is selected
+	StyleColorDockingPreview            // Preview overlay color when about to docking something
+	StyleColorDockingEmptyBg            // Background color for empty node (e.g. CentralNode with no window docked into it)
+	StyleColorPlotLines
+	StyleColorPlotLinesHovered
+	StyleColorPlotHistogram
+	StyleColorPlotHistogramHovered
+	StyleColorTableHeaderBg     // Table header background
+	StyleColorTableBorderStrong // Table outer and header borders (prefer using Alpha=1.0 here)
+	StyleColorTableBorderLight  // Table inner borders (prefer using Alpha=1.0 here)
+	StyleColorTableRowBg        // Table row background (even rows)
+	StyleColorTableRowBgAlt     // Table row background (odd rows)
+	StyleColorTextLink          // Hyperlink color
+	StyleColorTextSelectedBg
+	StyleColorDragDropTarget        // Rectangle highlighting a drop target
+	StyleColorNavCursor             // Color of keyboard/gamepad navigation cursor/rectangle, when visible
+	StyleColorNavWindowingHighlight // Highlight window when using CTRL+TAB
+	StyleColorNavWindowingDimBg     // Darken/colorize entire screen behind the CTRL+TAB window list, when active
+	StyleColorModalWindowDimBg      // Darken/colorize entire screen behind a modal window when one is active
 )
 
 // Dir is a cardinal direction.
